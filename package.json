@@ -2,22 +2,22 @@
   "name": "Trillion",
   "version": "0.0.1",
   "description": "Video Game Prototype",
-  "main": "index.php",
+  "author": "Curtis Dulmage",
+  "license": "MIT",
+  "private": true,
   "repository": {
     "type": "git",
     "url": "https://github.com/beefchimi/Trillion.git"
   },
-  "author": "Curtis Dulmage",
-  "license": "MIT",
   "bugs": {
     "url": "https://github.com/beefchimi/Trillion/issues"
   },
   "homepage": "https://github.com/beefchimi/Trillion",
-  "private": true,
   "devDependencies": {
     "grunt": "~0.4.5",
     "grunt-autoprefixer": "~0.7.5",
     "grunt-contrib-clean": "~0.5.0",
+    "grunt-contrib-haml": "~0.2.0",
     "grunt-contrib-imagemin": "~0.7.1",
     "grunt-contrib-sass": "~0.7.3",
     "grunt-contrib-uglify": "~0.4.0",

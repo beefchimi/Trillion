@@ -23,6 +23,16 @@ module.exports = function(grunt) {
 
 		},
 
+/*
+		haml: {
+			dist: {
+				files: {
+				'index.html': 'index.haml'
+				}
+			}
+		},
+*/
+
 		// SASS Processor and Minify
 		sass: {
 
