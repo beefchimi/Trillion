@@ -9,10 +9,11 @@ button,
 input,
 select,
 textarea {
-	font-family: Helvetica, "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Arial, sans-serif;
+	font-family: Monaco, Consolas, "Lucida Console", monospace;
 }
 html {
-	background: hsla(0,0%,96%,1);
+	background: hsla(0,0%,0%,1);
+	color: hsla(0,0%,100%,1);
 }
 body {
 	padding: 8rem;
@@ -61,6 +62,7 @@ a:active {
 }
 */
 
+/*
 #test {
 	color: hsla(0,0%,0%,1);
 	vertical-align: top;
@@ -69,4 +71,27 @@ a:active {
 	width: calc(100% - 10rem);
 	border-radius: 2rem;
 	box-sizing: border-box;
+}
+*/
+
+/* Header
+---------------------------------------------------------------------------- */
+header[data-site="header"] {
+	display: none;
+}
+
+/* Footer
+---------------------------------------------------------------------------- */
+footer[data-site="footer"] {
+	display: none;
+}
+
+
+/* ==|== internal styles ======================================================
+   ========================================================================= */
+
+/* Page
+---------------------------------------------------------------------------- */
+.kuputnick {
+	display: none;
 }

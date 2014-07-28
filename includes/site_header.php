@@ -65,20 +65,17 @@ if (dev) {
 
 	<header id="site_header" data-site="header">
 
-		<h1>This is the header.</h1>
-
 <?php
-
+/*
 		echo '<ul class="echo-list">';
 
 			echo '<li><strong>request uri:</strong> ' . $requestURI . '</li>';
 			echo '<li><strong>host path:</strong> ' . $hostPath . '</li>';
 			echo '<li><strong>directory title:</strong> ' . $directoryTitle . '</li>';
 			echo '<li><strong>file name:</strong> ' . $fileName . '</li>';
-			// echo '<li><strong>:</strong> ' .  . '</li>';
 
 		echo '</ul>';
-
+*/
 ?>
 
 	</header>

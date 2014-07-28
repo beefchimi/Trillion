@@ -11,6 +11,12 @@ jQuery(document).ready(function($) {
 		$window   = $(window);
 
 
+	/* Trillion: Function Test
+	---------------------------------------------------------------------------- */
+	// function
+
+
+
 	/* Window Load: Function Initialization
 	---------------------------------------------------------------------------- */
 	$window.load(function() {
