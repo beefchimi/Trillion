@@ -23,16 +23,6 @@ module.exports = function(grunt) {
 
 		},
 
-/*
-		haml: {
-			dist: {
-				files: {
-				'index.html': 'index.haml'
-				}
-			}
-		},
-*/
-
 		// SASS Processor and Minify
 		sass: {
 
@@ -186,19 +176,41 @@ module.exports = function(grunt) {
 		// Watch for changes on File > Save
 		watch: {
 
+/*
+			src: {
+				files: ['*.html', '*.php', '*.css', '*.js'], // '*.html, *.php, *.css, *.js' // '*.html', '*.php', '*.css', '*.js'
+				options: { livereload: true }
+			},
+*/
+
+			html: {
+				files: ['**/*.php'],
+				options: {
+					livereload: true,
+				}
+			},
+
 			css: {
 				files: ['assets/styles/source/*.scss'],
-				tasks: ['sass', 'autoprefixer']
+				tasks: ['sass', 'autoprefixer'],
+				options: {
+					livereload: true,
+				}
 			},
 
 			js: {
 				files: ['assets/scripts/source/*.js'],
-				tasks: ['uglify']
+				tasks: ['uglify'],
+				options: {
+					livereload: true,
+				}
 			}
 
 		}
 
 	});
+
+	// grunt.loadNpmTasks('grunt-contrib-watch');
 
 	grunt.registerTask('default', ['sass', 'autoprefixer', 'uglify', 'imagemin', 'svgmin', 'svgstore']);
 

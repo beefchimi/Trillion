@@ -4,15 +4,19 @@
 
 		<section id="intro" class="section_intro">
 
-<!--
-			<h2>TRILLION</h2>
+			<aside id="stats" class="sidebar_stats">
 
-			<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur blandit tempus porttitor. Donec id elit non mi porta gravida at eget metus. Aenean lacinia bibendum nulla sed consectetur.</p>
--->
+				<h1>Current Cell Data</h1>
 
-			<table>
+				<ul id="cell-data_list">
 
-			</table>
+					<li>Example items</li>
+
+				</ul>
+
+			</aside>
+
+			<?php include('includes/snips/main_grid-table.php'); ?>
 
 		</section>
 

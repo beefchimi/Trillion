@@ -35,14 +35,15 @@ img,
 button,
 input,
 textarea {
-	-webkit-transition: all 0.2s ease-in-out;
-			transition: all 0.2s ease-in-out;
+	transition: all 0.2s ease-in-out;
+}
+
+td.grid_cell {
+	transition: background 0.2s ease-in-out;
 }
 
 /*
-	-webkit-backface-visibility: hidden;
-	   -moz-backface-visibility: hidden;
-			backface-visibility: hidden;
+	backface-visibility: hidden;
 */
 
 /* Links and Buttons
@@ -90,8 +91,63 @@ footer[data-site="footer"] {
 /* ==|== internal styles ======================================================
    ========================================================================= */
 
-/* Page
+/* Introduction
 ---------------------------------------------------------------------------- */
-.kuputnick {
-	display: none;
+section.section_intro {
+	position: relative;
+}
+
+
+/* Stats Cell Data
+---------------------------------------------------------------------------- */
+aside.sidebar_stats {
+	position: absolute;
+	width: 20rem;
+	height: 100%;
+	border: 0.1rem solid hsla(0,0%,100%,1);
+}
+aside.sidebar_stats h1 {
+	padding: 1.6rem;
+	font-size: 1.3rem;
+	font-weight: 700;
+	border-bottom: 0.1rem solid hsla(0,0%,100%,1);
+}
+
+
+aside.sidebar_stats ul {
+	padding: 1.6rem;
+}
+
+
+/* Trillion Grid
+---------------------------------------------------------------------------- */
+table.grid_table {
+/*
+	table-layout: fixed;
+	width: 100%;
+	white-space: nowrap;
+*/
+	margin-left: 23.2rem;
+}
+td.grid_cell {
+	cursor: pointer;
+	width: 6rem;
+	height: 6rem;
+	text-align: center;
+	background: hsla(299,98%,56%,0);
+	border: 0.1rem solid hsla(0,0%,100%,1);
+}
+td.grid_cell:hover {
+	background: hsla(299,98%,56%,0.6);
+}
+td.grid_cell:active {
+	background: hsla(299,98%,56%,0.4);
+}
+
+td.grid_cell-current {
+	background-image: repeating-linear-gradient(45deg, hsla(299,98%,56%,0.6), hsla(299,98%,56%,0.0) 1px, hsla(299,98%,56%,0.6) 1px, hsla(299,98%,56%,0.0) 2px);
+}
+
+.cell_special {
+	color: hsla(59,100%,59%,1);
 }
