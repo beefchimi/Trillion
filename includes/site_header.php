@@ -63,7 +63,11 @@ if (dev) {
 
 <body id="page-id">
 
-	<header id="site_header" data-site="header">
+	<header id="site_header" class="clearfix" data-site="header">
+
+		<h1 id="player_name" class="player_name"><span id="player_title" class="player_title">Captain</span> Character Name</h1>
+
+		<h2 id="player_credits" class="player_credits">Credits: 2 736</h2>
 
 <?php
 /*

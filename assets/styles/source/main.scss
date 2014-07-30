@@ -2,6 +2,29 @@
    Author: Northern Army
    ========================================================================= */
 
+/* SASS Variables / Mixins
+---------------------------------------------------------------------------- */
+
+/* --- Colours --- */
+
+/*
+@mixin colour-pink($alpha) {
+	hsla(299,98%,56%,$alpha);
+}
+
+.box {
+	color: @include colour-pink(1);
+}
+*/
+
+/*
+
+$pink = hsla(299,98%,56%,1);
+$yellow = hsla(59,100%,59%,1);
+
+*/
+
+
 /* Foundation
 ---------------------------------------------------------------------------- */
 html,
@@ -16,7 +39,7 @@ html {
 	color: hsla(0,0%,100%,1);
 }
 body {
-	padding: 8rem;
+	padding: 6rem;
 	font-size: 2rem;
 }
 ::-moz-selection {
@@ -78,7 +101,25 @@ a:active {
 /* Header
 ---------------------------------------------------------------------------- */
 header[data-site="header"] {
-	display: none;
+	margin-bottom: 3.2rem;
+}
+
+h1.player_name {
+	float: left;
+	font-size: 1.4rem;
+	letter-spacing: 0.1rem;
+	text-transform: uppercase;
+}
+h1.player_name span {
+	color: hsla(299,98%,56%,1);
+}
+
+h2.player_credits {
+	float: right;
+	font-size: 1.4rem;
+	letter-spacing: 0.1rem;
+	text-transform: uppercase;
+	color: hsla(59,100%,59%,1);
 }
 
 /* Footer
@@ -125,9 +166,9 @@ li.stats_type {
 	text-transform: uppercase;
 }
 
-/* Trillion Grid
+/* Map Grid
 ---------------------------------------------------------------------------- */
-table.grid_table {
+table.map_grid {
 /*
 	table-layout: fixed;
 	width: 100%;
@@ -144,13 +185,13 @@ td.grid_cell {
 	border: 0.1rem solid hsla(0,0%,100%,1);
 }
 td.grid_cell:hover {
-	background: hsla(299,98%,56%,0.6);
+	background: hsla(299,98%,56%,0.5);
 }
 td.grid_cell:active {
 	background: hsla(299,98%,56%,0.4);
 }
 td.grid_cell-current {
-	background-image: repeating-linear-gradient(45deg, hsla(299,98%,56%,0.6), hsla(299,98%,56%,0.0) 1px, hsla(299,98%,56%,0.6) 1px, hsla(299,98%,56%,0.0) 2px);
+	background-image: repeating-linear-gradient(-45deg, hsla(299,98%,56%,0), hsla(299,98%,56%,0) 6px, hsla(299,98%,56%,1) 6px, hsla(299,98%,56%,1) 7px);
 }
 td.cell_special {
 	color: hsla(59,100%,59%,1);

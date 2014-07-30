@@ -9,7 +9,8 @@ jQuery(document).ready(function($) {
 		$window   = $(window);
 
 	// global special variables
-	var $gridCells = $('td.grid_cell');
+	var $gridCells = $('td.grid_cell'),
+		$mapGrid   = $('#map_grid');
 
 	// cell-types.js
 	var cellTypesBasic={celltype_1:{type:'empty',content:'Take the train to candy land.'},celltype_2:{type:'ship',content:'Sponge shoppin\' for a brand new Springfield.'},celltype_3:{type:'junkyard',content:'Look at all those chickens!'},celltype_4:{type:'debris field',content:'Holy shit! A fucking debris field!'},celltype_5:{type:'blackhole',content:'You will never escape. You will never find love.'},celltype_6:{type:'stranded citizen',content:'Help this helpless citizen! Or kill him and loot his stuff.'},celltype_7:{type:'bandits',content:'Bandits are attempting to hijack your ship! They are not looking for a fight.'},celltype_8:{type:'battle',content:'There is a doin\'s a-transpirin\'! Take part in the battle or slip on past?'},celltype_9:{type:'trading post',content:'Well look here partner, this be a tradin\' post, shuck-a-muck!'},celltype_10:{type:'corn diamond',content:'You found the lethal corn diamond! Disperse!'}};
@@ -70,12 +71,17 @@ jQuery(document).ready(function($) {
 			// '100' is dependent on the number of cells...
 			// need a more universal approach to defining this value
 
-			// get a random interger between 100 and 1
+			// get a random interger between 100 and 1, subtract 1 to account for 0-based index
 			randomCell = randomIntBetween(100, 1) - 1;
 
 			// capture player starting position
 			if (i === 0) {
-				var startPos = randomCell;
+
+				var startPos     = randomCell,
+					startLiteral = randomCell + 1; // account for 0-based index
+
+				$mapGrid.attr('data-currentcell', startLiteral);
+
 			}
 
 			// if previousCells does not yet contain this randomCell...
@@ -99,6 +105,8 @@ jQuery(document).ready(function($) {
 		// pass startPos to youAreHere()
 		youAreHere(startPos);
 
+		playerTravel(startPos);
+
 		// allow for cell clicks
 		clickCell();
 
@@ -113,6 +121,61 @@ jQuery(document).ready(function($) {
 		$gridCells.eq(_startPos).addClass('grid_cell-current');
 
 	}
+
+
+
+
+	function playerTravel(_startPos) { // , _startLiteral
+
+		// var playerLiteral = _startLiteral;
+
+		var $currentCell  = $gridCells.eq(_startPos),
+			$currentPrev  = $currentCell.prev(),
+			$currentNext  = $currentCell.next(),
+			currentRowPos = parseInt( $currentCell.attr('data-cell') );
+
+		console.log('startPos: ' + _startPos + ' | currentRowPos: ' + currentRowPos);
+
+		console.log('currentPrev:');
+		console.log($currentPrev);
+		console.log('currentNext:');
+		console.log($currentNext);
+
+		if (currentRowPos === 1) {
+			console.log('you cannot go left');
+		} else if (currentRowPos === 10) {
+			console.log('you cannot go right');
+		} else {
+			console.log('you can travel both left and right');
+		}
+
+
+
+/*
+
+	if this is a grid of 100 cells, we know we have 10 columns and 10 rows
+
+	finding adjacent elements is easy enough:
+	get 'data-cell' value
+	if 1, there is no moving left
+	if 10, there is no moving right
+	otherwise, both left and right can be made
+	- left or right is determined by subtracting or adding 1 to the current 'data-cell' value...
+	- but can be achieved using jQuery adjacent selectors
+
+	finding rows above or below:
+	go to parent <tr> and get 'data-row' value
+	if 1, there is no moving up
+	if 10, there is no moving down
+	otherwise, both up and down can be made
+	- up or down is determined by subtracting or adding 1 to the current 'data-row' value...
+	- then finding the <td> within that row with the same 'data-cell' value
+
+*/
+
+	}
+
+
 
 
 	/* Trillion (child): Click Cell for Data
@@ -151,38 +214,6 @@ jQuery(document).ready(function($) {
 		$('#stats_type').html(_cellTypeData['type']);
 		$('#stats_content').html(_cellTypeData['content']);
 		$('#stats_num').html(_cellDataNum);
-
-	}
-
-
-
-	function playerTravel() {
-
-		var playerPos = startPos;
-
-
-
-/*
-
-	if this is a grid of 100 cells, we know we have 10 columns and 10 rows
-
-	finding adjacent elements is easy enough:
-	get 'data-cell' value
-	if 1, there is no moving left
-	if 10, there is no moving right
-	otherwise, both left and right can be made
-	- left or right is determined by subtracting or adding 1 to the current 'data-cell' value...
-	- but can be achieved using jQuery adjacent selectors
-
-	finding rows above or below:
-	go to parent <tr> and get 'data-row' value
-	if 1, there is no moving up
-	if 10, there is no moving down
-	otherwise, both up and down can be made
-	- up or down is determined by subtracting or adding 1 to the current 'data-row' value...
-	- then finding the <td> within that row with the same 'data-cell' value
-
-*/
 
 	}
 
