@@ -8,9 +8,13 @@
 
 				<h1>Current Cell Data</h1>
 
-				<ul id="cell-data_list">
+				<ul id="stats_list">
 
-					<li>Example items</li>
+					<li id="stats_type" class="stats_type">...</li>
+
+					<li id="stats_content" class="stats_content"></li>
+
+					<li id="stats_num" class="stats_num"></li>
 
 				</ul>
 

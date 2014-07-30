@@ -1,73 +1,96 @@
-var cellTypes = {
+var cellTypesBasic = {
 
 	celltype_1: {
 
-		name: 'empty',
+		type: 'empty',
 		content: 'Take the train to candy land.'
 
 	},
 
 	celltype_2: {
 
-		name: 'ship',
+		type: 'ship',
 		content: 'Sponge shoppin\' for a brand new Springfield.'
 
 	},
 
 	celltype_3: {
 
-		name: 'junkyard',
+		type: 'junkyard',
 		content: 'Look at all those chickens!'
 
 	},
 
 	celltype_4: {
 
-		name: 'debris field',
+		type: 'debris field',
 		content: 'Holy shit! A fucking debris field!'
 
 	},
 
 	celltype_5: {
 
-		name: 'blackhole',
+		type: 'blackhole',
 		content: 'You will never escape. You will never find love.'
 
 	},
 
 	celltype_6: {
 
-		name: 'stranded citizen',
+		type: 'stranded citizen',
 		content: 'Help this helpless citizen! Or kill him and loot his stuff.'
 
 	},
 
 	celltype_7: {
 
-		name: 'bandits',
+		type: 'bandits',
 		content: 'Bandits are attempting to hijack your ship! They are not looking for a fight.'
 
 	},
 
 	celltype_8: {
 
-		name: 'battle',
+		type: 'battle',
 		content: 'There is a doin\'s a-transpirin\'! Take part in the battle or slip on past?'
 
 	},
 
 	celltype_9: {
 
-		name: 'trading post',
+		type: 'trading post',
 		content: 'Well look here partner, this be a tradin\' post, shuck-a-muck!'
 
 	},
 
 	celltype_10: {
 
-		name: 'corn diamond',
+		type: 'corn diamond',
 		content: 'You found the lethal corn diamond! Disperse!'
 
+	}
+
+};
+
+var cellTypesSpecial = {
+
+	celltype_a: {
+
+		type: 'stardock',
+		content: 'This is your spawn point. Cherish it forever.'
+
+	},
+
+	celltype_b: {
+
+		type: 'light bank',
+		content: 'Where all your legal financial transactions take place.'
+
+	},
+
+	celltype_c: {
+		type: 'dark bank',
+		content: 'Criminal shit goes on here. Its like the Omega in Mass Effect.'
 	}
 
 };

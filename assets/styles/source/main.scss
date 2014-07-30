@@ -97,7 +97,6 @@ section.section_intro {
 	position: relative;
 }
 
-
 /* Stats Cell Data
 ---------------------------------------------------------------------------- */
 aside.sidebar_stats {
@@ -112,12 +111,19 @@ aside.sidebar_stats h1 {
 	font-weight: 700;
 	border-bottom: 0.1rem solid hsla(0,0%,100%,1);
 }
-
-
+/* --- Stats Lists --- */
 aside.sidebar_stats ul {
 	padding: 1.6rem;
 }
-
+aside.sidebar_stats ul li {
+	margin-bottom: 1.2rem;
+	font-size: 1.3rem;
+	line-height: 1.2;
+}
+li.stats_type {
+	font-weight: 700;
+	text-transform: uppercase;
+}
 
 /* Trillion Grid
 ---------------------------------------------------------------------------- */
@@ -143,11 +149,9 @@ td.grid_cell:hover {
 td.grid_cell:active {
 	background: hsla(299,98%,56%,0.4);
 }
-
 td.grid_cell-current {
 	background-image: repeating-linear-gradient(45deg, hsla(299,98%,56%,0.6), hsla(299,98%,56%,0.0) 1px, hsla(299,98%,56%,0.6) 1px, hsla(299,98%,56%,0.0) 2px);
 }
-
-.cell_special {
+td.cell_special {
 	color: hsla(59,100%,59%,1);
 }
