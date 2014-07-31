@@ -117,88 +117,64 @@ jQuery(document).ready(function($) {
 	---------------------------------------------------------------------------- */
 	function youAreHere(_startPos) {
 
-		// add 'grid_cell-current' to starting position
+		var currentCellType = $gridCells.eq(_startPos).attr('data-celltype'),
+			currentCellTypeData;
+
+		console.log(currentCellType);
+
+		// apparently, isNaN is not reliable...
+		// seems to work for my case, but might want to reconsider
+		if ( isNaN(currentCellType) ) {
+			currentCellTypeData = cellTypesSpecial['celltype_' + currentCellType];
+		} else {
+			currentCellTypeData = cellTypesBasic['celltype_' + currentCellType];
+		}
+
+		printStats(currentCellTypeData, currentCellType);
+
+		// add 'grid_cell-current' to the current cell ... (starting position)
 		$gridCells.eq(_startPos).addClass('grid_cell-current');
 
 	}
 
 
+	/* Trillion (child): Player Cell Traversal
+	---------------------------------------------------------------------------- */
+	function playerTravel(_startPos) {
 
+		// current cell data
+		var $currentCell     = $gridCells.eq(_startPos),
+			$siblingCellPrev = $currentCell.prev(),
+			$siblingCellNext = $currentCell.next(),
+			currentColumnPos = parseInt( $currentCell.attr('data-column') );
 
-	function playerTravel(_startPos) { // , _startLiteral
+		// current row data
+		var $currentRow      = $currentCell.parent(),
+			$siblingRowPrev  = $currentRow.prev(),
+			$siblingRowNext  = $currentRow.next(),
+			currentRowPos    = parseInt( $currentRow.attr('data-row') );
 
-		// var playerLiteral = _startLiteral;
-
-		var $currentCell  = $gridCells.eq(_startPos),
-			$currentPrev  = $currentCell.prev(),
-			$currentNext  = $currentCell.next(),
-			currentRowPos = parseInt( $currentCell.attr('data-cell') );
-
-		console.log('startPos: ' + _startPos + ' | currentRowPos: ' + currentRowPos);
-
-		console.log('currentPrev:');
-		console.log($currentPrev);
-		console.log('currentNext:');
-		console.log($currentNext);
-
-		if (currentRowPos === 1) {
+		if (currentColumnPos === 1) {
 			console.log('you cannot go left');
-		} else if (currentRowPos === 10) {
+		} else if (currentColumnPos === 10) {
 			console.log('you cannot go right');
 		} else {
 			console.log('you can travel both left and right');
 		}
 
-
-
-/*
-
-	if this is a grid of 100 cells, we know we have 10 columns and 10 rows
-
-	finding adjacent elements is easy enough:
-	get 'data-cell' value
-	if 1, there is no moving left
-	if 10, there is no moving right
-	otherwise, both left and right can be made
-	- left or right is determined by subtracting or adding 1 to the current 'data-cell' value...
-	- but can be achieved using jQuery adjacent selectors
-
-	finding rows above or below:
-	go to parent <tr> and get 'data-row' value
-	if 1, there is no moving up
-	if 10, there is no moving down
-	otherwise, both up and down can be made
-	- up or down is determined by subtracting or adding 1 to the current 'data-row' value...
-	- then finding the <td> within that row with the same 'data-cell' value
-
-*/
-
-	}
+		if (currentRowPos === 1) {
+			console.log('you cannot go up');
+		} else if (currentRowPos === 10) {
+			console.log('you cannot go down');
+		} else {
+			console.log('you can travel both up and down');
+		}
 
 
 
 
-	/* Trillion (child): Click Cell for Data
-	---------------------------------------------------------------------------- */
-	function clickCell() {
 
-		$gridCells.on('click', function() {
 
-			var cellDataNum = $(this).attr('data-celltype');
-
-			// apparently, isNaN is not reliable...
-			// seems to work for my case, but might want to reconsider
-			if ( isNaN(cellDataNum) ) {
-				var cellTypeData = cellTypesSpecial['celltype_' + cellDataNum];
-			} else {
-				var cellTypeData = cellTypesBasic['celltype_' + cellDataNum];
-			}
-
-			printStats(cellTypeData, cellDataNum);
-
-			return false; // is this necessary for a <td> element?
-
-		});
 
 	}
 
@@ -216,6 +192,38 @@ jQuery(document).ready(function($) {
 		$('#stats_num').html(_cellDataNum);
 
 	}
+
+
+
+
+
+	/* Trillion (child) [testing purposes only]: Click Cell for Data
+	---------------------------------------------------------------------------- */
+	function clickCell() {
+
+		var cellTypeData;
+
+		$gridCells.on('click', function() {
+
+			var cellDataNum = $(this).attr('data-celltype');
+
+			// apparently, isNaN is not reliable...
+			// seems to work for my case, but might want to reconsider
+			if ( isNaN(cellDataNum) ) {
+				cellTypeData = cellTypesSpecial['celltype_' + cellDataNum];
+			} else {
+				cellTypeData = cellTypesBasic['celltype_' + cellDataNum];
+			}
+
+			printStats(cellTypeData, cellDataNum);
+
+			return false; // is this necessary for a <td> element?
+
+		});
+
+	}
+
+
 
 
 	/* Window Load: Function Initialization

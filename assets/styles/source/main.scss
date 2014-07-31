@@ -142,6 +142,8 @@ section.section_intro {
 ---------------------------------------------------------------------------- */
 aside.sidebar_stats {
 	position: absolute;
+	top: 0;
+	left: 0;
 	width: 20rem;
 	height: 100%;
 	border: 0.1rem solid hsla(0,0%,100%,1);
@@ -164,6 +166,44 @@ aside.sidebar_stats ul li {
 li.stats_type {
 	font-weight: 700;
 	text-transform: uppercase;
+}
+
+/* Navigation: Travel
+---------------------------------------------------------------------------- */
+nav.player_travel {
+	position: absolute;
+	top: 0;
+	left: 86.4rem;
+}
+nav.player_travel ul {
+}
+nav.player_travel ul li {
+}
+nav.player_travel ul li a {
+	display: block;
+	width: 0;
+	height: 0;
+}
+/* --- Directions --- */
+nav.player_travel ul li.travel_up a {
+	border-left: 1rem solid transparent;
+	border-right: 1rem solid transparent;
+	border-bottom: 1rem solid hsla(0,0%,100%,1);
+}
+nav.player_travel ul li.travel_down a {
+	border-left: 1rem solid transparent;
+	border-right: 1rem solid transparent;
+	border-top: 1rem solid hsla(0,0%,100%,1);
+}
+nav.player_travel ul li.travel_left a {
+	border-top: 1rem solid transparent;
+	border-bottom: 1rem solid transparent;
+	border-right: 1rem solid hsla(0,0%,100%,1);
+}
+nav.player_travel ul li.travel_right a {
+	border-top: 1rem solid transparent;
+	border-bottom: 1rem solid transparent;
+	border-left: 1rem solid hsla(0,0%,100%,1);
 }
 
 /* Map Grid

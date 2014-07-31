@@ -22,6 +22,30 @@
 
 			<?php include('includes/snips/main_grid-table.php'); ?>
 
+			<nav id="player_travel" class="player_travel">
+
+				<ul class="clearfix">
+
+					<li class="travel_btn travel_up">
+						<a href="#" id="travel_up" title="Travel Up"></a>
+					</li>
+
+					<li class="travel_btn travel_down">
+						<a href="#" id="travel_down" title="Travel Down"></a>
+					</li>
+
+					<li class="travel_btn travel_left">
+						<a href="#" id="travel_left" title="Travel Left"></a>
+					</li>
+
+					<li class="travel_btn travel_right">
+						<a href="#" id="travel_right" title="Travel Right"></a>
+					</li>
+
+				</ul>
+
+			</nav>
+
 		</section>
 
 	</main>

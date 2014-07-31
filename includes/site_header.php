@@ -67,7 +67,7 @@ if (dev) {
 
 		<h1 id="player_name" class="player_name"><span id="player_title" class="player_title">Captain</span> Character Name</h1>
 
-		<h2 id="player_credits" class="player_credits">Credits: 2 736</h2>
+		<h2 id="player_credits" class="player_credits">Credits: 2,736</h2>
 
 <?php
 /*
