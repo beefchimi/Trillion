@@ -119,20 +119,6 @@ jQuery(document).ready(function($) {
 	---------------------------------------------------------------------------- */
 	function updateCoordinates(assignedSector, assignedRow, assignedColumn, prevSector) {
 
-
-		console.log('assignedSector: ' + assignedSector);
-		console.log('assignedRow: ' + assignedRow);
-		console.log('assignedColumn: ' + assignedColumn);
-		console.log('prevSector: ' + prevSector);
-
-
-
-/*
-		var newSector    = $mapGrid.attr('data-currentSector', assignedSector),
-			newRowPos    = $mapGrid.attr('data-currentRow', assignedRow),
-			newColumnPos = $mapGrid.attr('data-currentColumn', assignedColumn);
-*/
-
 		$mapGrid.attr('data-currentSector', assignedSector);
 		$mapGrid.attr('data-currentRow', assignedRow);
 		$mapGrid.attr('data-currentColumn', assignedColumn);
@@ -145,24 +131,6 @@ jQuery(document).ready(function($) {
 */
 
 		youAreHere(assignedSector, prevSector);
-
-/*
-		if (assignedRow > 1) {
-			console.log('you can travel up');
-		}
-
-		if (assignedRow < 10) {
-			console.log('you can travel down');
-		}
-
-		if (assignedColumn > 1) {
-			console.log('you can travel left');
-		}
-
-		if (assignedColumn < 10) {
-			console.log('you can travel right');
-		}
-*/
 
 	}
 
@@ -197,9 +165,10 @@ jQuery(document).ready(function($) {
 
 		// if there is a value provided for _prevSector
 		if (_prevSector) {
+
 			prevSectorNumber = parseInt(_prevSector) - 1;
-			console.log('youAreHere prevSectorNumber: ' + prevSectorNumber);
 			$gridCells.eq(prevSectorNumber).removeClass('grid_cell-current');
+
 		}
 
 		// add 'grid_cell-current' to the current cell
@@ -266,11 +235,12 @@ jQuery(document).ready(function($) {
 				updateColumn = currentColumnPos + 1;
 
 			} else {
+
 				console.log('an error has occured');
 				return false;
+
 			}
 
-			console.log('updateCoorindates is about to run');
 			updateCoordinates(updateSector, updateRow, updateColumn, currentCellNumber);
 
 			return false;
