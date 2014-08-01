@@ -34,9 +34,9 @@ jQuery(document).ready(function($) {
 
 			var currentRandomInt = randomIntBetween(10, 1);
 
-			// assign currentRandomInt as html content and data-celltype attribute
+			// assign currentRandomInt as html content and data-cellType attribute
 			$(this).html(currentRandomInt)
-				   .attr('data-celltype', currentRandomInt);
+				   .attr('data-cellType', currentRandomInt);
 
 		});
 
@@ -77,10 +77,14 @@ jQuery(document).ready(function($) {
 			// capture player starting position
 			if (i === 0) {
 
-				var startPos     = randomCell,
-					startLiteral = randomCell + 1; // account for 0-based index
+				var startSector      = randomCell,
+					startSectorIndex = randomCell + 1, // account for 0-based index
+					startRowPos      = parseInt( $gridCells.eq(startSector).parent().attr('data-row') )
+					startColumnPos   = parseInt( $gridCells.eq(startSector).attr('data-column') );
 
-				$mapGrid.attr('data-currentcell', startLiteral);
+				// $mapGrid.attr('data-currentSector', startSectorIndex);
+				// $mapGrid.attr('data-currentRow', currentRowPos);
+				// $mapGrid.attr('data-currentColumn', currentColumnPos);
 
 			}
 
@@ -93,7 +97,7 @@ jQuery(document).ready(function($) {
 				// for this gridCell:
 				$gridCells.eq(randomCell)
 						  .html(specialCellValues[i]) // add current iteration of specialCellValues as html content,
-						  .attr('data-celltype', specialCellValues[i]) // add current iteration of specialCellValues as data-celltype attribute,
+						  .attr('data-cellType', specialCellValues[i]) // add current iteration of specialCellValues as data-cellType attribute,
 						  .addClass('cell_special'); // and apply "cell_special" class
 
 				i++;
@@ -102,10 +106,12 @@ jQuery(document).ready(function($) {
 
 		}
 
-		// pass startPos to youAreHere()
-		youAreHere(startPos);
+		// pass startSector to youAreHere()
+		youAreHere(startSector);
 
-		playerTravel(startPos);
+		// playerTravel();
+
+		updateCordinates(startSectorIndex, startRowPos, startColumnPos);
 
 		// allow for cell clicks
 		clickCell();
@@ -115,9 +121,9 @@ jQuery(document).ready(function($) {
 
 	/* Trillion (child): 'You Are Here' Marker
 	---------------------------------------------------------------------------- */
-	function youAreHere(_startPos) {
+	function youAreHere(_startSector) {
 
-		var currentCellType = $gridCells.eq(_startPos).attr('data-celltype'),
+		var currentCellType = $gridCells.eq(_startSector).attr('data-cellType'),
 			currentCellTypeData;
 
 		console.log(currentCellType);
@@ -133,26 +139,32 @@ jQuery(document).ready(function($) {
 		printStats(currentCellTypeData, currentCellType);
 
 		// add 'grid_cell-current' to the current cell ... (starting position)
-		$gridCells.eq(_startPos).addClass('grid_cell-current');
+		$gridCells.eq(_startSector).addClass('grid_cell-current');
 
 	}
 
 
+
+
+
+
 	/* Trillion (child): Player Cell Traversal
 	---------------------------------------------------------------------------- */
-	function playerTravel(_startPos) {
+/*
+	function playerTravel(_startSector) {
 
 		// current cell data
-		var $currentCell     = $gridCells.eq(_startPos),
-			$siblingCellPrev = $currentCell.prev(),
-			$siblingCellNext = $currentCell.next(),
-			currentColumnPos = parseInt( $currentCell.attr('data-column') );
+		var currentCellNumber   = $mapGrid.attr('data-currentSector'),
+			$currentCellElement = $gridCells.eq(currentCellNumber),
+			$siblingCellPrev    = $currentCellElement.prev(),
+			$siblingCellNext    = $currentCellElement.next(),
+			currentColumnPos    = parseInt( $currentCellElement.attr('data-column') );
 
 		// current row data
-		var $currentRow      = $currentCell.parent(),
-			$siblingRowPrev  = $currentRow.prev(),
-			$siblingRowNext  = $currentRow.next(),
-			currentRowPos    = parseInt( $currentRow.attr('data-row') );
+		var $currentRow     = $currentCellElement.parent(),
+			$siblingRowPrev = $currentRow.prev(),
+			$siblingRowNext = $currentRow.next(),
+			currentRowPos   = parseInt( $currentRow.attr('data-row') );
 
 		if (currentColumnPos === 1) {
 			console.log('you cannot go left');
@@ -170,13 +182,58 @@ jQuery(document).ready(function($) {
 			console.log('you can travel both up and down');
 		}
 
+		var $travelLinks = $('a.travel_link');
 
+		$travelLinks.on('click', function() {
 
+			var $thisDirection = $(this).attr('data-direction');
 
+			if ($thisDirection == 'up' && currentRowPos > 1) {
+				console.log('you can travel up');
+			} else if ($thisDirection == 'down' && currentRowPos < 10) {
+				console.log('you can travel down');
+			} else if ($thisDirection == 'left' && currentColumnPos > 1) {
+				console.log('you can travel left');
+			} else if ($thisDirection == 'right' && currentColumnPos < 10) {
+				console.log('you can travel right');
+			}
 
-
+		});
 
 	}
+*/
+
+
+
+
+	/* Trillion (child): Update Coordinates
+	---------------------------------------------------------------------------- */
+	function updateCordinates(assignedSector, assignedRow, assignedColumn) {
+
+		var newSector    = $mapGrid.attr('data-currentSector', assignedSector),
+			newRowPos    = $mapGrid.attr('data-currentRow', assignedRow),
+			newColumnPos = $mapGrid.attr('data-currentColumn', assignedColumn);
+
+		if (assignedRow > 1) {
+			console.log('you can travel up');
+		}
+
+		if (assignedRow < 10) {
+			console.log('you can travel down');
+		}
+
+		if (assignedColumn > 1) {
+			console.log('you can travel left');
+		}
+
+		if (assignedColumn < 10) {
+			console.log('you can travel right');
+		}
+
+	}
+
+
+
 
 
 	/* Trillion (child): Print To Stats List
@@ -205,7 +262,7 @@ jQuery(document).ready(function($) {
 
 		$gridCells.on('click', function() {
 
-			var cellDataNum = $(this).attr('data-celltype');
+			var cellDataNum = $(this).attr('data-cellType');
 
 			// apparently, isNaN is not reliable...
 			// seems to work for my case, but might want to reconsider

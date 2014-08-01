@@ -27,19 +27,19 @@
 				<ul class="clearfix">
 
 					<li class="travel_btn travel_up">
-						<a href="#" id="travel_up" title="Travel Up"></a>
+						<a href="#" id="travel_up" class="travel_link" data-direction="up" title="Travel Up"></a>
 					</li>
 
 					<li class="travel_btn travel_down">
-						<a href="#" id="travel_down" title="Travel Down"></a>
+						<a href="#" id="travel_down" class="travel_link" data-direction="down" title="Travel Down"></a>
 					</li>
 
 					<li class="travel_btn travel_left">
-						<a href="#" id="travel_left" title="Travel Left"></a>
+						<a href="#" id="travel_left" class="travel_link" data-direction="left" title="Travel Left"></a>
 					</li>
 
 					<li class="travel_btn travel_right">
-						<a href="#" id="travel_right" title="Travel Right"></a>
+						<a href="#" id="travel_right" class="travel_link" data-direction="right" title="Travel Right"></a>
 					</li>
 
 				</ul>
