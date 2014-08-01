@@ -6,7 +6,7 @@
 
 			<aside id="stats" class="sidebar_stats">
 
-				<h1>Current Cell Data</h1>
+				<h1>Current Sector Data</h1>
 
 				<ul id="stats_list">
 
@@ -45,6 +45,22 @@
 				</ul>
 
 			</nav>
+
+			<div id="poop_pad" class="poop_pad">
+
+				<h1>poopPad</h1>
+
+				<ul id="poop_list">
+
+					<li id="poop_type" class="poop_type">...</li>
+
+					<li id="poop_content" class="poop_content"></li>
+
+					<li id="poop_num" class="poop_num"></li>
+
+				</ul>
+
+			</div>
 
 		</section>
 

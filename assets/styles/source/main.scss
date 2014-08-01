@@ -138,7 +138,7 @@ section.section_intro {
 	position: relative;
 }
 
-/* Stats Cell Data
+/* Stats Sector Data
 ---------------------------------------------------------------------------- */
 aside.sidebar_stats {
 	position: absolute;
@@ -168,13 +168,42 @@ li.stats_type {
 	text-transform: uppercase;
 }
 
+/* Poop Pad
+---------------------------------------------------------------------------- */
+div.poop_pad {
+	position: absolute;
+	top: 13.2rem;
+	left: 86.4rem;
+	width: 20rem;
+	height: auto;
+	border: 0.1rem solid hsla(0,0%,100%,1);
+}
+div.poop_pad h1 {
+	padding: 1.6rem;
+	font-size: 1.3rem;
+	font-weight: 700;
+	border-bottom: 0.1rem solid hsla(0,0%,100%,1);
+}
+/* --- Stats Lists --- */
+div.poop_pad ul {
+	padding: 1.6rem;
+}
+div.poop_pad ul li {
+	margin-bottom: 1.2rem;
+	font-size: 1.3rem;
+	line-height: 1.2;
+}
+li.poop_type {
+	font-weight: 700;
+	text-transform: uppercase;
+}
+
 /* Navigation: Travel
 ---------------------------------------------------------------------------- */
 nav.player_travel {
 	position: absolute;
 	top: 0;
 	left: 86.4rem;
-
 	width: 10rem;
 	height: 10rem;
 	border: 0.1rem solid hsla(0,0%,100%,1);
@@ -201,7 +230,6 @@ nav.player_travel ul li.travel_up {
 nav.player_travel ul li.travel_down {
 	top: 6.9rem;
 }
-
 nav.player_travel ul li.travel_left,
 nav.player_travel ul li.travel_right {
 	top: 50%;
@@ -213,10 +241,7 @@ nav.player_travel ul li.travel_left {
 nav.player_travel ul li.travel_right {
 	left: 6.8rem;
 }
-
-
-
-
+/* link styles */
 nav.player_travel ul li.travel_up a {
 	border-left: 1rem solid transparent;
 	border-right: 1rem solid transparent;
@@ -225,7 +250,6 @@ nav.player_travel ul li.travel_up a {
 nav.player_travel ul li.travel_up a:hover {
 	border-bottom-color: hsla(299,98%,56%,1);
 }
-
 nav.player_travel ul li.travel_down a {
 	border-left: 1rem solid transparent;
 	border-right: 1rem solid transparent;
@@ -234,7 +258,6 @@ nav.player_travel ul li.travel_down a {
 nav.player_travel ul li.travel_down a:hover {
 	border-top-color: hsla(299,98%,56%,1);
 }
-
 nav.player_travel ul li.travel_left a {
 	border-top: 1rem solid transparent;
 	border-bottom: 1rem solid transparent;
@@ -243,7 +266,6 @@ nav.player_travel ul li.travel_left a {
 nav.player_travel ul li.travel_left a:hover {
 	border-right-color: hsla(299,98%,56%,1);
 }
-
 nav.player_travel ul li.travel_right a {
 	border-top: 1rem solid transparent;
 	border-bottom: 1rem solid transparent;
@@ -252,11 +274,9 @@ nav.player_travel ul li.travel_right a {
 nav.player_travel ul li.travel_right a:hover {
 	border-left-color: hsla(299,98%,56%,1);
 }
-
 nav.player_travel ul li.travel_up a:active {
 	opacity: 0.8;
 }
-
 
 /* Map Grid
 ---------------------------------------------------------------------------- */
