@@ -32,7 +32,7 @@ module.exports = function(grunt) {
 					sourcemap: true
 				},
 				files: {
-					'assets/styles/build/styles.css' : 'assets/styles/source/sass-imports.scss'
+					'assets/styles/build/styles.css' : 'assets/styles/source/imports.scss'
 				}
 			}
 

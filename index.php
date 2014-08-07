@@ -62,6 +62,15 @@
 
 			</div>
 
+			<form id="command_terminal" class="command_terminal clearfix">
+
+				<label for="command_input" class="visuallyhidden">Command Line</label>
+				<input type="text" id="command_input" name="command_input" placeholder="..."/>
+
+				<input type="submit" id="command_submit" value="!" />
+
+			</form>
+
 		</section>
 
 	</main>

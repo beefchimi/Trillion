@@ -291,6 +291,39 @@ jQuery(document).ready(function($) {
 	}
 
 
+
+
+	/* Test Form Submission
+	---------------------------------------------------------------------------- */
+	function terminalCommands() {
+
+		var $commandTerminal = $('#command_terminal'),
+			$commandInput    = $('#command_input'),
+			commandOutput;
+
+		$commandTerminal.on('submit', function() {
+
+			var commandValue = $commandInput.val();
+
+			if (commandValue == 'eat shit') {
+				commandOutput = 'hey how bout this. you eat shit.'
+			} else {
+				commandOutput = 'error: unidentified command'
+			}
+
+			// for testing only
+			$('#poop_type').html(commandValue);
+			$('#poop_content').html(commandOutput);
+			$('#poop_num').html('');
+
+			return false;
+
+		});
+
+	}
+
+
+
 	/* Window Load: Function Initialization
 	---------------------------------------------------------------------------- */
 	$window.load(function() {
@@ -300,6 +333,8 @@ jQuery(document).ready(function($) {
 		assignGridCells();
 
 		clickCell();
+
+		terminalCommands();
 
 	});
 
